@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import filedialog
+from tkinter import filedialog, messagebox
 import pymem
 
 class InjectorGUI(tk.Frame):
@@ -12,7 +12,7 @@ class InjectorGUI(tk.Frame):
     
     def create_widgets(self):
         # Label and entry for process name
-        self.lebel = tk.Label(self, text = "Process name: ")
+        self.label = tk.Label(self, text = "Process name: ")
         self.label.pack(side ="left")
 
         self.process_entry = tk.Entry(self)
@@ -57,3 +57,7 @@ class InjectorGUI(tk.Frame):
 
         except:
             tk.messagebox.showerror("Error", "Error injecting DLL")
+
+root = tk.Tk()
+app = InjectorGUI(master=root)
+app.mainloop()
